@@ -1,5 +1,22 @@
-body {
+*,
+*::after,
+*::before {
   margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
   font-family: 'Josefin Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,4 +25,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+:root {
+  min-height: 100%;
+}
+
+@media (max-width: 1200px) {
+  body {
+    width: 375px;
+    margin: auto auto;
+    overflow-y: scroll;
+  }
 }

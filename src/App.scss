@@ -1,38 +1,132 @@
+@import './variables.scss';
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  text-align: left;
+  height: 100vh;
+  width: 1440px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  .container {
+    width: 55%;
+    padding: 5rem 20rem 5rem 15rem;
 
-.App-link {
-  color: #61dafb;
-}
+    header {
+      text-align: left;
+      margin-bottom: 15rem;
+      .header__hero {
+        display: none;
+      }
+    } // header closer
+    h1 {
+      font-size: 6rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: 15px;
+      margin-bottom: 2rem;
+      .highlight {
+        color: $color-desaturated-red;
+        font-weight: 300;
+      }
+    }
+    p {
+      font-size: 16px;
+      color: $color-desaturated-red;
+      line-height: 1.5;
+      margin-bottom: 4rem;
+    }
+    form {
+      border: 1px solid hsla(0, 36%, 70%, 0.5);
+      border-radius: 3rem;
+      height: 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      label {
+        height: 100%;
+        width: 60%;
+        padding: 1rem 2rem;
+        input {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          border: none;
+          width: 100%;
+          height: 100%;
+          background-color: hsla(0, 36%, 70%, 0);
+          margin-left: 1.5rem;
+        }
+        input:focus {
+          outline: none;
+        }
+        input::-webkit-input-placeholder {
+          font-family: 'Josefin Sans' !important;
+          font-size: 15px;
+          color: $color-desaturated-red;
+          opacity: 0.4;
+          font-weight: 400;
+          position: absolute;
+          top: 0.7rem;
+          left: -0.8rem;
+        }
+      } // label closer
+      .icon__error {
+        width: 2rem;
+        display: none;
+      }
+      button {
+        height: 100%;
+        width: 20%;
+        border: none;
+        border-radius: 30px;
+        background-image: linear-gradient(
+          135deg,
+          hsl(0, 80%, 86%) 30%,
+          hsl(0, 74%, 74%) 100%
+        );
+        box-shadow: 0px 8px 20px 5px hsl(0deg 36% 70% / 30%);
+        transition: all 0.3s;
+      }
+      button:hover {
+        transform: scale(1.03);
+        box-shadow: 0px 2px 2px 2px hsl(0deg 36% 70% / 30%);
+      }
+    } // form closer tag
+    .emailError {
+      margin: 2rem 0 0 4rem;
+      color: red;
+      opacity: 0.6;
+      font-size: 11px;
+    }
+  } // container closer tag
+  .image__container {
+    height: 100vh;
+    width: 45%;
+    background-image: url('./hero-desktop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-position: center;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 1200px) {
+  .App {
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    header {
+      .header__hero {
+        display: visible;
+      }
+    }
+
+    .image__container {
+      display: none;
+    }
   }
 }
