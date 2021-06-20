@@ -5,7 +5,34 @@
   height: 100vh;
   width: 1440px;
   display: flex;
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(
+      135deg,
+      hsl(0, 0%, 100%) 0%,
+      hsl(0, 100%, 98%) 100%
+    );
+    z-index: -2;
+  }
+  .container::after {
+    content: ' ';
+    background-image: url('./bg-pattern-desktop.svg');
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
   .container {
+    position: relative;
     width: 55%;
     padding: 5rem 20rem 5rem 15rem;
 
@@ -98,7 +125,7 @@
     }
   } // container closer tag
   .image__container {
-    height: 100vh;
+    height: 100%;
     width: 45%;
     background-image: url('./hero-desktop.jpg');
     background-repeat: no-repeat;
