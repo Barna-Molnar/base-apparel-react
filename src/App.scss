@@ -33,7 +33,7 @@
   }
   .container {
     position: relative;
-    width: 55%;
+    width: 60%;
     padding: 5rem 20rem 5rem 15rem;
 
     header {
@@ -72,6 +72,7 @@
         width: 60%;
         padding: 1rem 2rem;
         input {
+          color: $color-desaturated-red;
           position: relative;
           display: flex;
           flex-direction: row;
@@ -91,7 +92,7 @@
           opacity: 0.4;
           font-weight: 400;
           position: absolute;
-          top: 0.7rem;
+          top: 0.9rem;
           left: -0.8rem;
         }
       } // label closer
@@ -126,7 +127,7 @@
   } // container closer tag
   .image__container {
     height: 100%;
-    width: 45%;
+    width: 40%;
     background-image: url('./hero-desktop.jpg');
     background-repeat: no-repeat;
     background-size: cover;
