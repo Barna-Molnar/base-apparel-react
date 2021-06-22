@@ -16,6 +16,10 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  background-image: url('./bg-pattern-desktop.svg');
+  background-size: cover;
+  background-position: right;
+
   box-sizing: border-box;
   font-family: 'Josefin Sans', sans-serif;
   -webkit-font-smoothing: antialiased;

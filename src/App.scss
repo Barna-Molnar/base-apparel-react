@@ -1,5 +1,11 @@
 @import './variables.scss';
 
+.hidden {
+  opacity: 0;
+}
+.visible {
+  opacity: 1;
+}
 .App {
   text-align: left;
   height: 100vh;
@@ -98,9 +104,12 @@
       } // label closer
       .icon__error {
         width: 2rem;
-        display: none;
+        display: block;
       }
       button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 100%;
         width: 20%;
         border: none;
@@ -127,11 +136,13 @@
   } // container closer tag
   .image__container {
     height: 100%;
-    width: 40%;
+    width: 50%;
+
     background-image: url('./hero-desktop.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    // background-position: center;
+    object-fit: contain;
+    background-position: center;
 
     img {
       width: 100%;
@@ -144,17 +155,52 @@
 
 @media (max-width: 1200px) {
   .App {
-    background-color: red;
-    width: 100%;
+    width: 375px;
     height: 100%;
-    header {
-      .header__hero {
-        display: visible;
-      }
+    text-align: center;
+    .container::after {
+      background-image: none;
     }
+    .container {
+      width: 100%;
+      padding: 3rem 0;
 
-    .image__container {
-      display: none;
+      header {
+        width: 100%;
+        margin-bottom: 6rem;
+
+        .header__logo {
+          margin-left: 3rem;
+          width: 10rem;
+        }
+        .header__hero {
+          display: block;
+          margin-top: 3rem;
+        }
+      } // header closer
+
+      &__title {
+        font-size: 4rem !important;
+      }
+
+      &__text {
+        padding: 0 3rem;
+        font-size: 14px !important;
+      }
+      .form__wrapper {
+        padding: 0 3rem;
+
+        button {
+          width: 23%;
+        }
+      }
+      .emailError {
+        margin-left: 7rem;
+        text-align: left;
+      }
+      .image__container {
+        display: none;
+      }
     }
   }
 }
