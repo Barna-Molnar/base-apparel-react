@@ -1,12 +1,22 @@
 import './App.scss';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import validator from 'validator';
 
 function App() {
   const [emailError, setEmailError] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [hidden, setHidden] = useState(true);
-  console.log(typeof inputValue);
+
+  useEffect(() => {
+    console.log('run');
+    if (!inputValue) {
+      setHidden(true);
+      setEmailError('');
+      return;
+    }
+    setEmailError('Please provide a valid Email!');
+  }, [inputValue]);
+
   const validateEmail = (e) => {
     const email = e.target.value;
 
@@ -17,6 +27,7 @@ function App() {
       setEmailError('Please provide a valid Email!');
     }
   };
+
   return (
     <div className="App">
       <section className="container">
@@ -60,6 +71,12 @@ function App() {
             />
             <button
               onClick={(e) => {
+                if (inputValue === '') {
+                  e.preventDefault();
+                  setEmailError('Please provide a valid Email!');
+                  setHidden(false);
+                  return;
+                }
                 e.preventDefault();
                 e.target.value = '';
                 setInputValue('');
@@ -70,7 +87,7 @@ function App() {
             </button>
           </form>
         </div>
-        <div className="emailError">{!inputValue ? '' : emailError}</div>
+        <div className="emailError">{emailError}</div>
       </section>
       <section className="image__container">
         <img src="./images/hero-desktop.jpg" alt="yah"></img>
